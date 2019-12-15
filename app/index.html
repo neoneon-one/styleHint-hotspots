@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>aFrame02</title>
+		<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+		<!-- Place favicon.ico in the root directory -->
+		<!-- build:css styles/main.css -->
+		<link rel="stylesheet" href="styles/main.css" />
+		<!-- endbuild -->
+
+		<!-- We've included a slightly modified version of A-Frame, which fixes some polish concerns -->
+		<script src="//cdn.8thwall.com/web/aframe/8frame-0.8.2.min.js"></script>
+
+		<script
+			defer
+			src="//cdn.8thwall.com/web/aframe/aframe-animation-component-5.1.2.min.js"
+		></script>
+
+		<!-- XR Extras - provides utilities like load screen, almost there, and error handling.
+         See github.com/8thwall/web/xrextras -->
+		<script src="//cdn.8thwall.com/web/xrextras/xrextras.js"></script>
+
+		<script src="scripts/gesture-detector.js"></script>
+		<script src="scripts/hold-drag.js"></script>
+		<script src="scripts/pinch-scale.js"></script>
+		<script src="scripts/two-finger-spin.js"></script>
+
+		<!-- 8thWall Web - Replace the app key here with your own app key -->
+		<script
+			async
+			src="//apps.8thwall.com/xrweb?appKey=frE2LYB5ISTxSpURMJtVbgjUHgZgmDd6vhisyDWuJX78igCDR8bvNh9Ntnd0sHM2yLUzrZ"
+		></script>
+
+		<script>
+			AFRAME.registerComponent("next-button", {
+				init: function() {
+					const animationList = [
+						"idle",
+						"pockets",
+						"hiphop",
+						"chicken"
+					];
+					const model = document.getElementById("model");
+					const nextButton = document.getElementById("nextbutton");
+					// const hotSpotting = document.getElementById("hotSpotting");
+					let idx = 1; // Start with the 2nd animation because the model starts with idle animation
+					const nextAnimation = () => {
+						model.setAttribute("animation-mixer", {
+							clip: animationList[idx],
+							loop: "repeat"
+						});
+						idx = (idx + 1) % animationList.length;
+					};
+					nextButton.onclick = nextAnimation; // Switch to the next animation when the button is pressed.
+				}
+			});
+
+			// AFRAME.registerComponent("hot-spotting", {
+			// 	init: function() {
+			// 		// console.log("Hello, World!");
+			// 		const hotSpotting = document.getElementById("hotSpotting");
+			// 	}
+			// });
+		</script>
+	</head>
+
+	<body>
+		<div class="nextbutton" id="nextbutton">Next &gt;</div>
+		<!-- <div class="alsonextbutton" id="alsonextbutton">Also Next &gt;</div> -->
+		<div class="hotter" id="hotter">
+			<article class="hotspot hotspot01">
+				<div class="dotOuter"></div>
+				<div class="dotInner"></div>
+				<div class="hotInfo">
+					<h3>MEN EXTRA FINE COTTON BROADCLOTH LONG-SLEEVE SHIRT</h3>
+					<p>
+						Made with fine cotton to reduce wrinkles after washing.
+						Made with a breathable comfortable fabric.
+					</p>
+					<h4>Shop Now</h4>
+					<div class="hotClose">😴</div>
+				</div>
+			</article>
+			<article class="hotspot hotspot02">
+				<div class="dotOuter"></div>
+				<div class="dotInner"></div>
+				<div class="hotInfo">
+					<h3>MEN STRETCH SELVEDGE<br />SLIM-FIT JEANS</h3>
+					<p>
+						Traditional selvedge denim with added stretch for
+						live-in comfort.
+					</p>
+					<h4>Shop Now</h4>
+					<div class="hotClose">😴</div>
+				</div>
+			</article>
+			<article class="hotspot hotspot03">
+				<div class="dotOuter"></div>
+				<div class="dotInner"></div>
+				<div class="hotInfo">
+					<h3>MEN STRETCH SELVEDGE<br />SLIM-FIT JEANS</h3>
+					<p>
+						Traditional selvedge denim with added stretch for
+						live-in comfort.
+					</p>
+					<h4>Shop Now</h4>
+					<div class="hotClose">😴</div>
+				</div>
+			</article>
+		</div>
+
+		<a-scene
+			xrweb
+			next-button
+			gesture-detector
+			xrextras-almost-there
+			xrextras-loading
+			xrextras-runtime-error
+		>
+			<!-- We can define assets here to be loaded when A-Frame initializes -->
+			<a-assets>
+				<a-asset-item
+					id="animatedModel"
+					src="mixamo-animated-lowpoly.glb"
+				></a-asset-item>
+			</a-assets>
+
+			<!-- The raycaster will emit mouse events on scene objects specified with the cantap class -->
+			<a-camera
+				id="camera"
+				position="0 8 8"
+				raycaster="objects: .cantap"
+				cursor="
+          fuse: false;
+          rayOrigin: mouse;"
+			>
+			</a-camera>
+
+			<a-entity
+				light="type: directional;
+               intensity: 0.8;"
+				position="1 4.3 2.5"
+			>
+			</a-entity>
+
+			<a-light type="ambient" intensity="1"></a-light>
+
+			<a-entity
+				id="model"
+				gltf-model="#animatedModel"
+				class="cantap"
+				scale="3 3 3"
+				animation-mixer="clip: idle; loop: repeat"
+				hold-drag
+				two-finger-spin
+				pinch-scale
+			>
+			</a-entity>
+
+			<a-entity
+				id="ground"
+				class="cantap"
+				geometry="primitive: box"
+				material="color: #ffffff; transparent: true; opacity: 0.0"
+				scale="1000 2 1000"
+				position="0 -1 0"
+			>
+			</a-entity>
+		</a-scene>
+
+		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+		<script>
+			(function(b, o, i, l, e, r) {
+				b.GoogleAnalyticsObject = l;
+				b[l] ||
+					(b[l] = function() {
+						(b[l].q = b[l].q || []).push(arguments);
+					});
+				b[l].l = +new Date();
+				e = o.createElement(i);
+				r = o.getElementsByTagName(i)[0];
+				e.src = "https://www.google-analytics.com/analytics.js";
+				r.parentNode.insertBefore(e, r);
+			})(window, document, "script", "ga");
+			ga("create", "UA-XXXXX-X");
+			ga("send", "pageview");
+		</script>
+		<!-- build:js scripts/vendor.js -->
+		<script
+			type="text/javascript"
+			src="/node_modules/jquery/dist/jquery.min.js"
+		></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/3.0.2/gsap.min.js"></script>
+		<!-- endbuild -->
+		<!-- build:js scripts/main.js -->
+		<script src="scripts/main.js"></script>
+		<!-- endbuild -->
+	</body>
+</html>
