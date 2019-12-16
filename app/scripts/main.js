@@ -8,7 +8,12 @@ timeLine.to(".dotOuter", {
 	ease: "power1.out"
 });
 
-$(function() {
+$(function () {
+
+	$(".splash").click(function () {
+		$(".splash").hide()
+	});
+
 	$(".dotInner").click(function() {
 		$(".hotInfo").removeClass("hotVisi");
 		$(this)

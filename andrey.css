@@ -1,0 +1,234 @@
+.splash {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+}
+
+.splash * {
+  z-index: 10;
+  background-color: white;
+}
+
+.splash .splashContents {
+  position: relative;
+  top: 35%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.splash h3 {
+  margin-top: -90px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.splash button {
+  margin-top: 20px;
+  padding: 5px 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  border: 2px solid black;
+  border-radius: 18px;
+}
+
+.hotter {
+  z-index: 10;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.hotter * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.hotter p {
+  line-height: 1.3;
+}
+
+.hotter h3 {
+  margin-top: 0;
+}
+
+.hotter h4 {
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.hotter section {
+  position: relative;
+  width: 1280px;
+}
+
+.hotter img.andreyStatic {
+  width: 100%;
+}
+
+.hotter .hotspot {
+  position: absolute;
+}
+
+.hotter .dotOuter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 1px solid white;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.hotter .dotInner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.hotter .hotInfo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 350px;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+.hotter .hotInfo.hotVisi {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+.hotter .hotInfo .hotClose {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.hotter .hotspot01 {
+  top: 9%;
+  right: 22%;
+  right: 15%;
+}
+
+.hotter .hotspot01 .hotInfo {
+  top: 14px;
+  left: 220px;
+  width: 380px;
+}
+
+@media all and (max-width: 768px) {
+  .hotter .hotspot01 .hotInfo {
+    position: fixed;
+    top: 30%;
+    left: 5%;
+    -webkit-transform: none;
+            transform: none;
+    width: calc(100vw - 10%);
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+  }
+}
+
+.hotter .hotspot02 {
+  top: 21%;
+  right: 15%;
+}
+
+.hotter .hotspot02 .hotInfo {
+  top: -60px;
+  left: -170px;
+  width: 380px;
+}
+
+@media all and (max-width: 768px) {
+  .hotter .hotspot02 .hotInfo {
+    position: fixed;
+    top: 30%;
+    left: 5%;
+    -webkit-transform: none;
+            transform: none;
+    width: calc(100vw - 10%);
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+  }
+}
+
+.hotter .hotspot03 {
+  bottom: 29%;
+  right: 15%;
+}
+
+.hotter .hotspot03 .hotInfo {
+  top: -60px;
+  left: -170px;
+  width: 380px;
+}
+
+@media all and (max-width: 768px) {
+  .hotter .hotspot03 .hotInfo {
+    position: fixed;
+    top: 30%;
+    left: 5%;
+    -webkit-transform: none;
+            transform: none;
+    width: calc(100vw - 10%);
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+  }
+}

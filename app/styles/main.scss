@@ -9,6 +9,41 @@ $fontFam_hel: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 $circSize: 20px;
 
+.splash {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: white;
+	* {
+		z-index: 10;
+		background-color: white;
+	}
+	.splashContents {
+		position: relative;
+		top: 35%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+	h3 {
+		margin-top: -90px;
+		font-size: 18px;
+		font-weight: 500;
+	}
+	button {
+		margin-top: 20px;
+		padding: 5px 20px;
+		font-family: $fontFam_hel;
+		font-size: 16px;
+		font-weight: 700;
+		border: 2px solid black;
+		border-radius: 18px;
+	}
+}
 
 .hotter {
 	z-index: 10;
@@ -20,8 +55,9 @@ $circSize: 20px;
 	left: 0px;
 	width: 100vw;
 	height: 100vh;
-	border: 1px solid deepskyblue;
+	// border: 1px solid deepskyblue;
 	font-family: $fontFam_hel;
+	// pointer-events: none;
 
 	* {
 		box-sizing: border-box;
@@ -109,9 +145,14 @@ $circSize: 20px;
 		}
 	}
 
+	.hotspot {
+		// pointer-events: none;
+	}
+
 	.hotspot01 {
-		top: 15%;
+		top: 9%;
 		right: 22%;
+		right: 15%;
 
 		.hotInfo {
 			top: 14px;
@@ -131,7 +172,8 @@ $circSize: 20px;
 	}
 
 	.hotspot02 {
-		bottom: 45%;
+		// bottom: 45%;
+		top: 21%;
 		right: 15%;
 
 		.hotInfo {
@@ -154,7 +196,8 @@ $circSize: 20px;
 
 	.hotspot03 {
 		bottom: 29%;
-		left: 20%;
+		// left: 20%;
+		right: 15%;
 
 		.hotInfo {
 			top: -60px;
@@ -173,21 +216,4 @@ $circSize: 20px;
 			}
 		}
 	}
-}
-
-div.nextbutton {
-	display: none;
-	z-index: 10;
-	width: 33%;
-	height: 10%;
-	width: 0;
-	height: 0;
-	position: absolute;
-	top: 10px;
-	left: 10px;
-	background-color: #7611b7;
-	text-align: center;
-	color: #ffffff;
-	vertical-align: middle;
-	user-select: none;
 }
